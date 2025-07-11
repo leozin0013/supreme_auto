@@ -403,73 +403,17 @@ class CriacaoPedidos(tk.Frame):
 
         contrato_texto = f"""
             Pelo presente instrumento particular, de um lado:
-            SUPREME AUTOMAÇÕES, inscrita no CNPJ sob o nº 60.785.475/0001-62, com sede à Rua Jayr Amaury Koebe, 220 - AP 1007A, neste ato representada por seu titular Leonardo Moreto Azambuja, doravante denominada CONTRATADA,
+            MINHA SUPER EMPRESA, inscrita no CNPJ sob o nº 01.234.567/0001-89, com sede à RUA TAL TAL TAL, neste ato representada por seu titular EU MESMO, doravante denominada CONTRATADA,
             E, de outro lado,
-            {cli[0] if pedido[1] != 1 and cli else '[NOME DO CLIENTE]'}, inscrito no CPF sob o nº {cpf_cli or '[CPF]'}, residente à {endereco_cli or '[ENDEREÇO COMPLETO DO APARTAMENTO]'}, doravante denominado CONTRATANTE,
+            {cli[0] if pedido[1] != 1 and cli else '[NOME DO CLIENTE]'}, inscrito no CPF sob o nº {cpf_cli or '[CPF]'}, residente à {endereco_cli or '[ENDEREÇO COMPLETO]'}, doravante denominado CONTRATANTE,
             firmam o presente contrato de prestação de serviços de automação residencial, mediante as seguintes cláusulas e condições:
 
-            CLÁUSULA 1: OBJETO
-            1.1. O presente contrato tem por objeto a prestação de serviços de automação residencial, incluindo fornecimento, instalação, configuração e ativação de dispositivos inteligentes para iluminação, climatização, cortinas, entre outros, conforme proposta previamente aprovada.
-            1.2. Os serviços serão realizados sem descaracterizar a estética do imóvel e, sempre que possível, mantendo os interruptores originais, salvo quando expressamente autorizado pelo CONTRATANTE.
+            CLÁUSULA X: XXXXX
 
-            CLÁUSULA 2: VISTORIA PRÉVIA
-            2.1. A assinatura deste contrato está condicionada à realização de vistoria técnica presencial obrigatória, pela CONTRATADA, no local da instalação, com o objetivo de avaliar as condições físicas e elétricas do ambiente, identificando eventuais limitações e intervenções necessárias.
-            2.2. A CONTRATADA se compromete a informar previamente quaisquer adaptações que envolvam intervenções físicas, como cortes em forro de gesso, perfurações ou ajustes no acabamento. Tais medidas somente serão realizadas mediante autorização expressa do CONTRATANTE.
-            2.3. A CONTRATADA poderá registrar imagens do local de instalação exclusivamente para fins técnicos e documentais. Tais imagens não serão divulgadas ou compartilhadas com terceiros, sendo armazenadas com segurança e utilizadas apenas em caso de necessidade técnica ou comprovação contratual.
+            CLÁUSULA Y: XXXXX
 
-            CLÁUSULA 3: ESCOPO DOS SERVIÇOS
-            3.1. Os serviços abrangem:
-                - Fornecimento e instalação dos dispositivos de automação conforme proposta aprovada;
-                - Passagem de novos cabos, reorganização ou desativação de condutores, se necessário;
-                - Configuração e testes dos sistemas instalados;
-                - Instruções básicas de uso ao CONTRATANTE.
-            3.2. A CONTRATADA não se responsabiliza por limitações físicas, estruturais ou elétricas preexistentes, tais como:
-                - Conduítes obstruídos;
-                - Instalações fora de norma;
-                - Ligações mal executadas anteriormente.
-            3.3. Caso o CONTRATANTE opte por manter interruptores antigos, reconhece e aceita eventuais limitações técnicas ou falhas decorrentes dessa escolha, isentando a CONTRATADA de responsabilidades.
-
-            CLÁUSULA 4: ACESSO TÉCNICO TEMPORÁRIO A CREDENCIAIS DIGITAIS
-            4.1. Para a vinculação dos módulos de automação às contas do CONTRATANTE, será necessário o acesso temporário às credenciais de login das seguintes plataformas:
-                - Amazon Alexa (conta Amazon)
-                - Smart Life ou aplicativo equivalente utilizado pelo CONTRATANTE
-            4.2. As credenciais serão utilizadas exclusivamente durante a fase de instalação e configuração, sendo acessadas em ambiente controlado e supervisionado.
-            4.3. A CONTRATADA compromete-se a não armazenar, copiar, compartilhar ou reutilizar tais dados após a conclusão do serviço.
-            4.4. O CONTRATANTE declara estar ciente e responsável por alterar as senhas imediatamente após o término da instalação, isentando a CONTRATADA de qualquer responsabilidade por acessos indevidos, falhas de segurança ou usos posteriores dessas contas.
-
-            CLÁUSULA 5: PRAZO DE EXECUÇÃO
-            5.1. Os serviços serão realizados no prazo de até [____] dias úteis, contados a partir da data de início acordada entre as partes, podendo haver prorrogação mediante comum acordo, caso identificado impedimento técnico durante a execução.
-
-            CLÁUSULA 6: VALOR E CONDIÇÕES DE PAGAMENTO
-            6.1. O valor total dos serviços contratados é de R$ {pedido[2]:.2f}, pago da seguinte forma:
-                - [___] À vista via PIX ou transferência bancária;
-                - [___] Parcelado em [____] vezes de R$ {pedido[2]:.2f};
-            6.2. O não pagamento nos prazos acordados sujeitará o CONTRATANTE a multa de 2% sobre o valor em atraso, além de juros de mora de 1% ao mês.
-            6.3. O valor estipulado para cada categoria de serviço inclui o fornecimento dos dispositivos, materiais auxiliares, mão de obra de instalação, testes e configurações. A CONTRATADA não está obrigada a apresentar ao CONTRATANTE o custo individual de cada item, salvo exigência legal.
-
-            CLÁUSULA 7: GARANTIA E SUPORTE
-            7.1. A CONTRATADA oferece 90 (noventa) dias de garantia legal sobre a execução dos serviços, contados a partir da data de finalização.
-            7.2. A garantia dos equipamentos fornecidos respeitará os prazos e condições estipulados pelo fabricante.
-            7.3. O suporte técnico será prestado de forma pontual e sob demanda, limitado a orientações, configurações ou ajustes iniciais, sem cobertura de manutenção periódica.
-            7.4. Qualquer solicitação de reconfiguração dos dispositivos após a entrega técnica será atendida mediante novo agendamento e poderá gerar cobrança adicional, conforme tabela vigente da CONTRATADA.
-
-            CLÁUSULA 8: LIMITAÇÃO DE RESPONSABILIDADE
-            8.1. A CONTRATADA se responsabiliza exclusivamente pelos serviços e dispositivos fornecidos e instalados sob este contrato.
-            8.2. A CONTRATADA não responderá por:
-                - Intervenções realizadas por terceiros após a instalação;
-                - Mau uso dos dispositivos;
-                - Danos ocasionados por falhas ou irregularidades na estrutura elétrica do imóvel.
-            8.3. O CONTRATANTE declara estar ciente de que os dispositivos de automação instalados pela CONTRATADA são compatíveis com cargas elétricas de, no máximo, 10 amperes (10A), conforme especificações técnicas dos fabricantes.
-            8.4. A utilização de equipamentos ou circuitos com corrente superior à recomendada poderá acarretar danos permanentes aos dispositivos instalados, bem como riscos de curto-circuito, incêndio ou mau funcionamento do sistema de automação.
-            8.5. A CONTRATADA não se responsabiliza por quaisquer danos materiais, falhas técnicas ou prejuízos decorrentes da utilização indevida de equipamentos que excedam o limite de corrente especificado, sendo esta conduta considerada mau uso, isentando a CONTRATADA de qualquer obrigação de reparo, substituição ou reembolso.
-
-            CLÁUSULA 9: RESCISÃO
-            9.1. O contrato poderá ser rescindido por qualquer das partes, mediante aviso prévio de 5 (cinco) dias úteis.
-            9.2. Caso a rescisão ocorra após o início da execução dos serviços, o CONTRATANTE se compromete a pagar valor proporcional aos serviços realizados, acrescido de indenização de até 30% do total do contrato, referente a custos operacionais.
+            CLÁUSULA Z: XXXXX
             
-            CLÁUSULA 10: FORO
-            10.1. Para dirimir quaisquer controvérsias oriundas deste contrato, as partes elegem o foro da comarca de Porto Alegre/RS, renunciando a qualquer outro, por mais privilegiado que seja.
-
             DECLARAÇÃO FINAL:
             Declaro ter lido, compreendido e concordado com todas as cláusulas do presente contrato, bem como ter recebido as devidas explicações sobre os serviços contratados.
 
@@ -477,8 +421,8 @@ class CriacaoPedidos(tk.Frame):
 
             CONTRATADA:
             ________________________________________
-            Leonardo Moreto Azambuja
-            CNPJ: 60.785.475/0001-62
+            MINHA SUPER EMPRESA
+            CNPJ: 01.234.567/0001-89
 
             CONTRATANTE:
             ________________________________________
