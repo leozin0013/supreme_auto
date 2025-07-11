@@ -1,0 +1,7 @@
+pyotp
+requests
+fpdf
+mercadopago
+reportlab
+qrcode[PIL]
+uuid
