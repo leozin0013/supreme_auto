@@ -7,10 +7,12 @@ Sistema de gestão empresarial desenvolvido em Python com interface gráfica Tki
 - **Gestão de Clientes**: Cadastro e gerenciamento de clientes
 - **Controle de Estoque**: Gestão de produtos e categorias
 - **Criação de Pedidos**: Sistema completo de pedidos com integração ao Mercado Pago
-- **Módulo Financeiro**: Controle financeiro com autenticação 2FA
+- **Módulo Financeiro**: Controle financeiro com autenticação 2FA (TOTP)
 - **Gestão de Contratos**: Upload e download de contratos em PDF
 - **Cobrança**: Sistema de cobrança integrado
 - **Notificações**: Integração com Discord para notificações
+- **Gerador TOTP**: Ferramenta para gerar chaves secretas RFC 6238
+- **Monitor TOTP**: Visualizador em tempo real de códigos TOTP
 
 ## 📋 Pré-requisitos
 
@@ -67,8 +69,8 @@ start.bat
    - Configure o webhook para receber notificações de pagamento
 
 2. **Autenticação 2FA (TOTP)**:
-   - Gere uma chave secreta TOTP
-   - Use um app como Google Authenticator para gerar códigos
+   - Use o gerador de chaves: `TOTP/gerar_segredo.py`
+   - Insira sua chave no arquivo: `TOTP/totp.py`
 
 3. **Discord (Opcional)**:
    - Crie um webhook no seu servidor Discord
@@ -95,23 +97,86 @@ supreme_auto/
 ├── assets/              # Recursos estáticos
 │   ├── ico.ico
 │   └── logo.png
+├── TOTP/                # Ferramentas TOTP
+│   ├── gerar_segredo.py  # Gerador de chaves secretas
+│   └── totp.py          # Monitor TOTP em tempo real
 └── ui/                  # Interface gráfica
-    ├── menu_principal.py
+    ├── __init__.py
+    ├── atrelamento_contratos.py
+    ├── cadastro_categorias.py
     ├── cadastro_clientes.py
-    ├── cadastro_produtos.py
+    ├── criacao_produtos.py
+    ├── cobranca.py
     ├── criacao_pedidos.py
     ├── financeiro.py
-    └── ...
+    ├── menu_principal.py
+    └── pedidos_pagos.py
 ```
 
-## 🔒 Segurança
+## � Ferramentas TOTP
+
+O sistema inclui ferramentas avançadas para geração e monitoramento de códigos TOTP:
+
+### Gerador de Chaves RFC 6238
+
+```bash
+python .\TOTP\gerar_segredo.py
+```
+
+**Funcionalidades:**
+- Gera chaves seguras de 160 bits conforme RFC 6238
+- Validação automática de segurança
+- Atualização automática do arquivo `.env`
+- Geração de QR codes para configuração fácil
+- URI compatível com todos os apps autenticadores
+
+### Monitor TOTP em Tempo Real
+
+```bash
+python .\TOTP\totp.py
+```
+
+**Funcionalidades:**
+- Exibe códigos TOTP atualizando em tempo real
+- Barra de progresso visual
+- Contador de tempo restante
+- Interface limpa sem poluir o terminal
+- Compatível com iOS/Android via a-Shell
+
+### Localização das Ferramentas
+
+As ferramentas TOTP também estão disponíveis na pasta `TOTP/`:
+- `TOTP/totp.py` - Monitor em tempo real (compatível com mobile)
+
+## �🔒 Segurança
 
 - **Nunca commite credenciais**: Todas as informações sensíveis devem estar no arquivo `.env`
-- **Autenticação 2FA**: O módulo financeiro usa TOTP para segurança adicional
+- **Autenticação 2FA RFC 6238**: O módulo financeiro usa TOTP com chaves de 160 bits
+- **Geração segura de chaves**: Usa `secrets.token_bytes()` para máxima segurança
 - **Validação de entrada**: Todos os inputs são validados antes do processamento
 - **Banco de dados local**: SQLite para armazenamento seguro local
+- **Modo debug controlado**: Bypass de autenticação apenas em desenvolvimento
 
 ## 🛠️ Desenvolvimento
+
+### Configuração do ambiente de desenvolvimento
+
+1. **Clone e configure o projeto:**
+```bash
+git clone <url-do-repositorio>
+cd supreme_auto
+pip install -r requirements.txt
+cp .env.example .env
+```
+
+2. **Gere uma chave TOTP segura:**
+```bash
+python gerar_chave_rfc6238.py
+```
+
+3. **Configure autenticação 2FA:**
+   - Use o QR code gerado ou configure manualmente
+   - Teste com: `python totp_tempo_real.py`
 
 ### Adicionando novas funcionalidades
 
@@ -141,11 +206,22 @@ O sistema usa SQLite com as seguintes tabelas principais:
 
 Para usar em produção:
 
-1. Configure `DEBUG_MODE=False` no arquivo `.env`
-2. Use tokens de produção do Mercado Pago
+1. **Gere uma nova chave TOTP de produção:**
+```bash
+python gerar_chave_rfc6238.py
+```
+
+2. Configure o arquivo `.env` de produção:
+```env
+DEBUG_MODE=False
+TOTP_SECRET_KEY=<chave_gerada_160_bits>
+MERCADOPAGO_PRODUCTION_TOKEN=<token_real>
+```
+
 3. Configure SSL/HTTPS para webhooks
 4. Faça backup regular do banco de dados
 5. Configure logs adequados
+6. Teste a autenticação 2FA em ambiente isolado
 
 ## 📄 Licença
 
